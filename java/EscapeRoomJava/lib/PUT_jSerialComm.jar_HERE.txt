@@ -1,0 +1,4 @@
+Download jSerialComm (e.g. jSerialComm-2.11.0.jar) from
+https://fazecast.github.io/jSerialComm/  (or Maven Central),
+rename it to   jSerialComm.jar   and put it in this lib folder.
+Then in Eclipse: right-click the project -> Refresh (F5).
