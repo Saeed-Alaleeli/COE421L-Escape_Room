@@ -9,7 +9,7 @@ Saif Alzarouni: b00091430
 # Project Description
 here------------
 # Device Photos?
-here----------??
+![Escape Room Game](Escape%20room%20game.jpg)
 # Goal of the Project
 here------------
 # Important Code
