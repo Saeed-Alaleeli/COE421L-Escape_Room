@@ -13,7 +13,7 @@ The panel talks wirelessly to a Java desktop app over XBee radios. The app runs 
 # Device Photos?
 ![Escape Room Game](Escape%20room%20game.jpg)
 # Goal of the Project
-here------------
+The goal of this project was to design and build an interactive escape room game that combines physical hardware with a desktop application over a wireless link. The game uses an Arduino Mega with sensors, buttons, a keypad and an LCD, and talks to a Java application through XBee radios. Along the way, the project put into practice embedded programming, sensor interfacing, serial wireless communication, and object-oriented software design using the State and Observer patterns with multithreading.
 # Important Code
 
 // =====================================================================
