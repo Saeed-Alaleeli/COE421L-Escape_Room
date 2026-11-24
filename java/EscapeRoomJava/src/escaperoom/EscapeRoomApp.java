@@ -16,11 +16,14 @@ import javax.swing.SwingUtilities;
  */
 public class EscapeRoomApp {
     public static void main(String[] args) {
+        // the model holds all game data (Observer pattern subject)
         GameModel model = new GameModel();
+        // the controller runs the game logic (State pattern context) and owns the XBee link
         GameController controller = new GameController(model);
+        // Swing windows must be created on the Swing event thread
         SwingUtilities.invokeLater(() -> {
             GameWindow window = new GameWindow(model, controller);
-            model.addObserver(window);
+            model.addObserver(window);          // register the window so it redraws on every change
             window.setVisible(true);
         });
     }

@@ -44,23 +44,36 @@ public class GameModel {
         synchronized (this) {
             this.stateName = stateName; this.level = level; this.title = title; this.hint = hint; this.sensorText = "";
         }
+        System.out.println();
+        System.out.println("===== " + title + " =====");
+        System.out.println(hint);
         notifyObservers();
     }
 
-    public void setSecondsLeft(int s) { synchronized (this) { secondsLeft = s; } notifyObservers(); }
+    public void setSecondsLeft(int s) {
+        synchronized (this) { secondsLeft = s; }
+        if (s % 30 == 0 && s < GAME_SECONDS) System.out.printf("   [time left %d:%02d]%n", s / 60, s % 60);
+        notifyObservers();
+    }
 
     public void revealDigit(int index, char d) {
         synchronized (this) { if (index >= 0 && index < 4) digits[index] = d; }
+        System.out.println(">> Code digit found! Secret code so far: " + getDigits());
         notifyObservers();
     }
 
-    public void addMistake() { synchronized (this) { mistakes++; } notifyObservers(); }
+    public void addMistake() {
+        synchronized (this) { mistakes++; }
+        System.out.println(">> Wrong! Mistakes: " + getMistakes());
+        notifyObservers();
+    }
 
     public void setSensorText(String t) { synchronized (this) { sensorText = t; } notifyObservers(); }
 
     public void setConnected(boolean c) { synchronized (this) { connected = c; } notifyObservers(); }
 
     public void addLog(String line) {
+        System.out.println(line);                       // also show every message in the console
         synchronized (this) {
             log.add(line);
             if (log.size() > 200) log.remove(0);
