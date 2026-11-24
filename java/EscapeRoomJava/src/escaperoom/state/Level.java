@@ -1,6 +1,11 @@
 package escaperoom.state;
 
-/** The 6 levels of the escape room, in order. */
+/**
+ * The 6 levels of the escape room, in order.
+ * Each level has its number (also used in the messages to and from the Mega),
+ * a title and a hint that are shown on the game screen.
+ * LevelState uses this enum, so one LevelState class covers all 6 levels.
+ */
 public enum Level {
     L1(1, "Level 1 - Copy the Lights",
           "Watch the colored buttons light up, then press them in the same order."),
@@ -15,9 +20,9 @@ public enum Level {
     L6(6, "Level 6 - ESCAPE!",
           "Press the big red button to escape!");
 
-    public final int number;
-    public final String title;
-    public final String hint;
+    public final int number;    // level number 1-6
+    public final String title;  // shown as the big title on screen
+    public final String hint;   // shown under the title to tell players what to do
 
     Level(int number, String title, String hint) {
         this.number = number; this.title = title; this.hint = hint;
